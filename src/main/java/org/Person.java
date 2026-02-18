@@ -27,6 +27,10 @@ public class Person {
         return moneySpent;
     }
 
+    public void setMoneySpent(double money) {
+        moneySpent = money;
+    }
+
     public double getDebt() {
         return debt;
     }

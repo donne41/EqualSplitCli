@@ -92,11 +92,26 @@ public class CliRunner {
     }
 
     private void editPerson() {
-        list.addAll(getExampleList());
-        calculate();
-
+        System.out.println("Input name or index of person you want to edit");
+        String input = sc.nextLine().trim();
+        int index = -1;
+        if (input.matches("\\d")) {
+            index = Integer.parseInt(input);
+        }
+        if (index < 0) {
+            var person = list.stream().filter(p -> {
+                return p.getName().matches(input);
+            }).findFirst().get();
+            System.out.println(person.getName() + " " + person.getMoneySpent());
+            System.out.println("enter new amount of money");
+            person.setMoneySpent(Double.parseDouble(sc.nextLine()));
+        } else {
+            var person = list.get(index);
+            System.out.println(person.getName() + " " + person.getMoneySpent());
+            System.out.println("enter new amount of money");
+            person.setMoneySpent(Double.parseDouble(sc.nextLine()));
+        }
     }
-
     private void removePerson() {
 
     }
@@ -112,6 +127,7 @@ public class CliRunner {
             System.out.printf("""
                     Sender: %-10s -> Reciver: %-10s Amount: %.2f\n""", t.getSenderName(), t.getReciverName(), t.getMoney());
         }
+        System.out.println("Total spent: " + result.sum + " Share amount: " + result.portion);
     }
 
     List<Person> getExampleList() {
