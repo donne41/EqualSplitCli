@@ -9,6 +9,7 @@ public class CliRunner {
     List<Person> list = new ArrayList<>();
     EqualSplit equalSplit = new EqualSplit();
     List<SplitResult> history = new ArrayList<>();
+    boolean badInput;
 
     public CliRunner(Scanner scanner) {
         sc = scanner;
@@ -18,8 +19,12 @@ public class CliRunner {
         sc = new Scanner(System.in);
     }
 
+    protected void exitProgram() {
+        badInput = false;
+    }
+
     void main() {
-        boolean badInput = true;
+        badInput = true;
         System.out.printf("""
                 Welcome to EqualSplit, Here you can easily calculate a share everybody is support to share
                 and if someone has paid more than that they should receive money from people who has
@@ -34,7 +39,7 @@ public class CliRunner {
                     5) calculate
                     9) exit
                     """);
-            String input = sc.nextLine();
+            String input = sc.nextLine().trim();
             int i = checkInput(input);
             switch (i) {
                 case 1 -> addPerson();
@@ -42,8 +47,7 @@ public class CliRunner {
                 case 3 -> removePerson();
                 case 4 -> viewList();
                 case 5 -> calculate();
-                case 9 -> badInput = false;
-                default -> System.out.println("bad input");
+                default -> badInput = false;
             }
 
         } while (badInput);
@@ -66,12 +70,12 @@ public class CliRunner {
 
     private void addPerson() {
         System.out.println("Name: ");
-        String name = sc.next().trim();
+        String name = sc.nextLine().trim();
         while (true) {
             System.out.println("Money spent: ");
             double money = 0;
             try {
-                money = sc.nextDouble();
+                money = Double.parseDouble(sc.nextLine());
             } catch (Exception e) {
                 System.out.println("Error money input for person");
                 continue;
@@ -81,6 +85,7 @@ public class CliRunner {
                 continue;
             }
             list.add(new Person(name, money));
+            System.out.println("Added person: " + list.getLast().getName());
             return;
         }
 
