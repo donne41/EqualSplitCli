@@ -69,7 +69,7 @@ public class CliRunner {
         list.forEach(System.out::println);
     }
 
-    private void addPerson() {
+    protected void addPerson() {
         System.out.println("Name: ");
         String name = sc.nextLine().trim();
         while (true) {
@@ -94,71 +94,69 @@ public class CliRunner {
 
     private void editPerson() {
         System.out.println("Input name or index of person you want to edit");
-        String input = sc.nextLine().trim();
-        int index = inputValidation(input);
-        if (index >= list.size()) {
-            System.out.println("Index out of bounds!");
+        String personInput = sc.nextLine().trim();
+        System.out.println("Input a corrected amount of money spent");
+        String newMoney = sc.nextLine().trim();
+        editMoneySpent(personInput, newMoney);
+
+    }
+
+    protected void editMoneySpent(String name, String money) {
+        var person = findPerson(name);
+        if (person.isEmpty()) {
+            System.out.println("Could not find person!");
             return;
         }
-        if (index < 0) {
-            var person = findPerson(input);
-            if (person.isEmpty()) {
-                System.out.println("Person not found!");
-                return;
-            }
-            System.out.println(person.get().getName() + " " + person.get().getMoneySpent());
-            System.out.println("enter new amount of money");
-            person.get().setMoneySpent(Double.parseDouble(sc.nextLine()));
-        } else {
-            var person = list.get(index);
-            System.out.println(person.getName() + " " + person.getMoneySpent());
-            System.out.println("enter new amount of money");
-            person.setMoneySpent(Double.parseDouble(sc.nextLine()));
+        if (!moneyValidation(money)) {
+            System.out.println("invalid money input!");
+            return;
         }
+        System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
+        person.get().setMoneySpent(Double.parseDouble(money));
     }
 
     private Optional<Person> findPerson(String name) {
-        var person = list.stream().filter(p -> {
-            return p.getName().matches(name);
-        }).findFirst().get();
-        return Optional.of(person);
+        if (name.matches("\\d")) {
+            if (list.size() < Integer.parseInt(name)) return Optional.empty();
+            return Optional.of(list.get(Integer.parseInt(name)));
+        }
+        return list.stream().filter(p ->
+                p.getName().matches(name)).findFirst();
     }
 
-    private static int inputValidation(String input) {
-        int index = -1;
-        if (input.matches("\\d")) {
-            index = Integer.parseInt(input);
+    private boolean moneyValidation(String input) {
+        if (input.matches("\\d+")) {
+            return true;
         }
-        return index;
+        return false;
     }
 
     private void removePerson() {
         System.out.println("Enter name or index of person to be removed");
         String input = sc.nextLine().trim();
-        int index = inputValidation(input);
-        if (index >= list.size()) {
-            System.out.println("index out of bounds!");
-            return;
-        }
-        if (index < 0) {
-            var person = findPerson(input);
-            System.out.println("Remove person: " + person.get().getName() + " " + person.get().getMoneySpent());
-            System.out.println("1) yes \nany) Exit");
-            String answer = sc.nextLine().trim();
-            if (answer.matches("1")) {
-                list.remove(person);
-                System.out.println("Removed person");
-            }
-        } else {
-            var person = list.get(index);
-            System.out.println("Remove person: " + person.getName() + " " + person.getMoneySpent());
-            System.out.println("1) yes \nany) Exit");
-            String answer = sc.nextLine().trim();
-            if (answer.matches("1")) {
-                list.remove(person);
-                System.out.println("Removed person");
-            }
-        }
+//        if (index >= list.size()) {
+//            System.out.println("index out of bounds!");
+//            return;
+//        }
+//        if (index < 0) {
+//            var person = findPerson(input);
+//            System.out.println("Remove person: " + person.get().getName() + " " + person.get().getMoneySpent());
+//            System.out.println("1) yes \nany) Exit");
+//            String answer = sc.nextLine().trim();
+//            if (answer.matches("1")) {
+//                list.remove(person);
+//                System.out.println("Removed person");
+//            }
+//        } else {
+//            var person = list.get(index);
+//            System.out.println("Remove person: " + person.getName() + " " + person.getMoneySpent());
+//            System.out.println("1) yes \nany) Exit");
+//            String answer = sc.nextLine().trim();
+//            if (answer.matches("1")) {
+//                list.remove(person);
+//                System.out.println("Removed person");
+//            }
+//        }
 
     }
 

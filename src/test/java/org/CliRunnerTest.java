@@ -1,5 +1,6 @@
 package org;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -49,6 +50,17 @@ class CliRunnerTest {
         var result = cRunner.list.size();
 
         assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    void editedPersonShouldSaveNewSpentMoney() {
+        cRunner = new CliRunner();
+        cRunner.list.add(new Person("bob", 100));
+        cRunner.editMoneySpent("bob", "300");
+
+        var result = cRunner.list.getLast().getMoneySpent();
+        assertThat(result).isEqualTo(300);
+
     }
 
 }
