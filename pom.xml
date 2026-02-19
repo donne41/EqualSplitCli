@@ -44,6 +44,16 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.22.0</version>
+                <configuration>
+                    <targetClasses>
+                        <param>org.CliRunner</param>
+                        <param>org.EqualSplit</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>org.CliRunnerTest</param>
+                        <param>org.EqualSplitTest</param>
+                    </targetTests>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>
