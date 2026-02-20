@@ -16,6 +16,11 @@ public class CliRunner {
         sc = scanner;
     }
 
+    public void switchScanner(Scanner newScanner) {
+        sc.close();
+        sc = newScanner;
+    }
+
     public CliRunner() {
         sc = new Scanner(System.in);
     }
@@ -70,7 +75,7 @@ public class CliRunner {
     }
 
 
-    protected void addPerson() {
+    void addPerson() {
         String name;
         String moneySpent;
         do {
@@ -85,7 +90,7 @@ public class CliRunner {
         addPersonToList(name, moneySpent);
     }
 
-    protected void addPersonToList(String name, String moneySpent) {
+    void addPersonToList(String name, String moneySpent) {
         String normilizedName = getNormilizedName(name);
         double money = Double.parseDouble(moneySpent);
         list.add(new Person(normilizedName, money));
@@ -96,29 +101,29 @@ public class CliRunner {
         return normilizedName;
     }
 
-    private void editPerson() {
+    void editPerson() {
         String personInput;
         String newMoney;
         do {
             System.out.println("Input name or index of person you want to edit");
             personInput = sc.nextLine().trim();
-            if (personInput.isBlank()) System.out.println("No name found or incorrect input");
+            if (personInput.isBlank()) throw new IllegalArgumentException("No name found or incorrect input");
             System.out.println("Input a corrected amount of money spent");
             newMoney = sc.nextLine().trim();
-            if (moneyValidation(newMoney)) System.out.println("Incorrect money input");
+            if (moneyValidation(newMoney)) throw new IllegalArgumentException("Incorrect money input");
             break;
         } while (true);
         editMoneySpent(personInput, newMoney);
 
     }
 
-    protected void editMoneySpent(String name, String money) {
+    void editMoneySpent(String name, String money) {
         var person = findPerson(getNormilizedName(name));
         System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
         person.get().setMoneySpent(Double.parseDouble(money));
     }
 
-    protected Optional<Person> findPerson(String name) {
+    Optional<Person> findPerson(String name) {
         if (name.matches("\\d+")) {
             if (list.size() <= Integer.parseInt(name)) return Optional.empty();
             return Optional.of(list.get(Integer.parseInt(name)));
@@ -127,14 +132,14 @@ public class CliRunner {
                 p.getName().matches(getNormilizedName(name))).findFirst();
     }
 
-    protected boolean moneyValidation(String input) {
+    private boolean moneyValidation(String input) {
         if (input.matches("\\d+")) {
             return false;
         }
         return true;
     }
 
-    protected void removePerson() {
+    void removePerson() {
         System.out.println("Enter name or index of person to be removed");
         String input = sc.nextLine().trim();
         var person = findPerson(input);
@@ -150,7 +155,8 @@ public class CliRunner {
         }
     }
 
-    private void calculate() {
+    // TODO test
+    void calculate() {
         history.add(equalSplit.getResult(list));
         resultPrinter();
     }

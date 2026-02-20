@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CliRunnerTest {
     CliRunner cRunner;
@@ -81,6 +82,24 @@ class CliRunnerTest {
         var result = cRunner.list.getLast().getMoneySpent();
         assertThat(result).isEqualTo(300);
 
+    }
+
+    @Test
+    void editPersonWrongInputValidation() {
+        String blankInput = "   ";
+        String noMoneyInput = "iCri\nNomoney";
+        Scanner fakeScan1 = new Scanner(blankInput);
+        Scanner fakeScan2 = new Scanner(noMoneyInput);
+        cRunner = new CliRunner(fakeScan1);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            cRunner.editPerson();
+        });
+        cRunner.switchScanner(fakeScan2);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            cRunner.editPerson();
+        });
     }
 
     @Test
