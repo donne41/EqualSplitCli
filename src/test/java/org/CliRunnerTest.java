@@ -52,6 +52,26 @@ class CliRunnerTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "3, bob, 1, 3, tim, 1, 9"
+    })
+    void removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey(int menuSelect, String name,
+                                                                         int confirm, int menuSelect2,
+                                                                         String name2, String anyKey, String exit) {
+        String simInput = String.format("%d\n%s\n%d\n%d\n%s\n%s\n%s", menuSelect, name, confirm, menuSelect2, name2, anyKey, exit);
+        Scanner fakeScanner = new Scanner(simInput);
+        cRunner = new CliRunner(fakeScanner);
+        cRunner.list.add(new Person("bob", 200));
+        cRunner.list.add(new Person("tim", 300));
+
+        cRunner.main();
+
+        var result = cRunner.list.size();
+
+        assertThat(result).isEqualTo(1);
+    }
+
     @Test
     void editedPersonShouldSaveNewSpentMoney() {
         cRunner = new CliRunner();
