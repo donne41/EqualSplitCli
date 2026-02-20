@@ -54,9 +54,9 @@ class CliRunnerTest {
 
     @ParameterizedTest
     @CsvSource({
-            "3, bob, 1, 3, tim, 1, 9"
+            "3, bob, 1, 3, tim, anyKey, 9"
     })
-    void removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey(int menuSelect, String name,
+    void removePersonShouldWithConfirmationShouldDecreaseSizeButNotAnyKey(int menuSelect, String name,
                                                                          int confirm, int menuSelect2,
                                                                          String name2, String anyKey, String exit) {
         String simInput = String.format("%d\n%s\n%d\n%d\n%s\n%s\n%s", menuSelect, name, confirm, menuSelect2, name2, anyKey, exit);
@@ -75,7 +75,7 @@ class CliRunnerTest {
     @Test
     void editedPersonShouldSaveNewSpentMoney() {
         cRunner = new CliRunner();
-        cRunner.list.add(new Person("bob", 100));
+        cRunner.addPersonToList("bob", "100");
         cRunner.editMoneySpent("bob", "300");
 
         var result = cRunner.list.getLast().getMoneySpent();
@@ -86,7 +86,7 @@ class CliRunnerTest {
     @Test
     void findPersonShouldReturnPersonWithDifferentMethods() {
         cRunner = new CliRunner();
-        cRunner.list.add(new Person("bob", 100));
+        cRunner.addPersonToList("bob", "200");
 
         var stringResult = cRunner.findPerson("bob");
         var indexResult = cRunner.findPerson("0");

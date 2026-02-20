@@ -113,8 +113,7 @@ public class CliRunner {
     }
 
     protected void editMoneySpent(String name, String money) {
-        String normalizedName = getNormilizedName(name);
-        var person = findPerson(normalizedName);
+        var person = findPerson(getNormilizedName(name));
         System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
         person.get().setMoneySpent(Double.parseDouble(money));
     }
@@ -125,7 +124,7 @@ public class CliRunner {
             return Optional.of(list.get(Integer.parseInt(name)));
         }
         return list.stream().filter(p ->
-                p.getName().matches(name)).findFirst();
+                p.getName().matches(getNormilizedName(name))).findFirst();
     }
 
     protected boolean moneyValidation(String input) {
