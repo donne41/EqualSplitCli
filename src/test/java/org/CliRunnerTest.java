@@ -62,8 +62,8 @@ class CliRunnerTest {
         String simInput = String.format("%d\n%s\n%d\n%d\n%s\n%s\n%s", menuSelect, name, confirm, menuSelect2, name2, anyKey, exit);
         Scanner fakeScanner = new Scanner(simInput);
         cRunner = new CliRunner(fakeScanner);
-        cRunner.list.add(new Person("bob", 200));
-        cRunner.list.add(new Person("tim", 300));
+        cRunner.addPersonToList("bob", "200");
+        cRunner.addPersonToList("tim", "300");
 
         cRunner.main();
 
@@ -90,6 +90,7 @@ class CliRunnerTest {
 
         var stringResult = cRunner.findPerson("bob");
         var indexResult = cRunner.findPerson("0");
+
 
         assertThat(stringResult).isNotEmpty();
         assertThat(indexResult).isNotEmpty();

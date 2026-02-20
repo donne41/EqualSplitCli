@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="remove person fix, with test.">
+    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="remove person integration test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +67,7 @@
     "JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney (1).executor": "Run",
     "JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney.executor": "Run",
     "JUnit.CliRunnerTest.executor": "Run",
-    "JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods.executor": "Debug",
+    "JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods.executor": "Run",
     "JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne (1).executor": "Run",
     "JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne.executor": "Run",
     "JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1).executor": "Run",
@@ -109,7 +110,20 @@
       <recent name="org" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1)">
+  <component name="RunManager" selected="JUnit.CliRunnerTest">
+    <configuration name="CliRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.CliRunner" />
+      <module name="EqualSplit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CliRunnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EqualSplit" />
       <extension name="coverage">
@@ -125,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliRunnerTest.removePersonShouldReduceListCountByOne (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CliRunnerTest.addThreePersonShouldReturnCorrectSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EqualSplit" />
       <extension name="coverage">
         <pattern>
@@ -135,13 +149,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org" />
       <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
-      <option name="METHOD_NAME" value="removePersonShouldReduceListCountByOne(java.lang.String,java.lang.String)" />
+      <option name="METHOD_NAME" value="addThreePersonShouldReturnCorrectSize(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliRunnerTest.removePersonShouldReduceListCountByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EqualSplit" />
       <extension name="coverage">
         <pattern>
@@ -151,7 +165,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org" />
       <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
-      <option name="METHOD_NAME" value="removePersonShouldReduceListCountByOne" />
+      <option name="METHOD_NAME" value="findPersonShouldReturnPersonWithDifferentMethods" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -173,29 +187,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EqualSplit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org" />
-      <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
-      <option name="METHOD_NAME" value="removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey(int,java.lang.String,int,int,java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1)" />
-        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey" />
         <item itemvalue="JUnit.CliRunnerTest" />
-        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne (1)" />
-        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne" />
+        <item itemvalue="JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize" />
+        <item itemvalue="JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" />
+        <item itemvalue="Application.CliRunner" />
+        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +222,7 @@
       <workItem from="1771430063172" duration="5977000" />
       <workItem from="1771514073511" duration="1104000" />
       <workItem from="1771515181691" duration="8331000" />
-      <workItem from="1771577450724" duration="1079000" />
+      <workItem from="1771577450724" duration="3111000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -331,7 +329,14 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1771529499154</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="remove person integration test">
+      <option name="closed" value="true" />
+      <created>1771578598089</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1771578598089</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +357,8 @@
     <MESSAGE value="add pitest mutationcovarge" />
     <MESSAGE value="simplified edit spentMoney and test." />
     <MESSAGE value="remove person fix, with test." />
-    <option name="LAST_COMMIT_MESSAGE" value="remove person fix, with test." />
+    <MESSAGE value="remove person integration test" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove person integration test" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -366,7 +372,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/CliRunner.java</url>
-          <line>152</line>
+          <line>154</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

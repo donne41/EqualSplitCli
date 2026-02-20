@@ -70,49 +70,51 @@ public class CliRunner {
     }
 
 
-    // TODO Normalize names
     protected void addPerson() {
-        System.out.println("Name: ");
-        String name = sc.nextLine().trim();
-        while (true) {
+        String name;
+        String moneySpent;
+        do {
+            System.out.println("Name: ");
+            name = sc.nextLine().trim();
             System.out.println("Money spent: ");
-            double money = 0;
-            try {
-                money = Double.parseDouble(sc.nextLine());
-            } catch (Exception e) {
-                System.out.println("Error money input for person");
-                continue;
-            }
-            if (money < 0) {
-                System.out.println("A person should not have gained money ie. Negative money spent. Try again.");
-                continue;
-            }
-            list.add(new Person(name, money));
-            System.out.println("Added person: " + list.getLast().getName());
-            return;
-        }
+            moneySpent = sc.nextLine().trim();
+            if (name.isBlank()) System.out.println("Bad name input!");
+            if (moneyValidation(moneySpent)) System.out.println("Bad money input");
+            break;
+        } while (true);
+        addPersonToList(name, moneySpent);
+    }
 
+    protected void addPersonToList(String name, String moneySpent) {
+        String normilizedName = getNormilizedName(name);
+        double money = Double.parseDouble(moneySpent);
+        list.add(new Person(normilizedName, money));
+    }
+
+    private static String getNormilizedName(String name) {
+        String normilizedName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+        return normilizedName;
     }
 
     private void editPerson() {
-        System.out.println("Input name or index of person you want to edit");
-        String personInput = sc.nextLine().trim();
-        System.out.println("Input a corrected amount of money spent");
-        String newMoney = sc.nextLine().trim();
+        String personInput;
+        String newMoney;
+        do {
+            System.out.println("Input name or index of person you want to edit");
+            personInput = sc.nextLine().trim();
+            if (personInput.isBlank()) System.out.println("No name found or incorrect input");
+            System.out.println("Input a corrected amount of money spent");
+            newMoney = sc.nextLine().trim();
+            if (moneyValidation(newMoney)) System.out.println("Incorrect money input");
+            break;
+        } while (true);
         editMoneySpent(personInput, newMoney);
 
     }
 
     protected void editMoneySpent(String name, String money) {
-        var person = findPerson(name);
-        if (person.isEmpty()) {
-            System.out.println("Could not find person!");
-            return;
-        }
-        if (!moneyValidation(money)) {
-            System.out.println("invalid money input!");
-            return;
-        }
+        String normalizedName = getNormilizedName(name);
+        var person = findPerson(normalizedName);
         System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
         person.get().setMoneySpent(Double.parseDouble(money));
     }
@@ -128,9 +130,9 @@ public class CliRunner {
 
     protected boolean moneyValidation(String input) {
         if (input.matches("\\d+")) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     protected void removePerson() {
