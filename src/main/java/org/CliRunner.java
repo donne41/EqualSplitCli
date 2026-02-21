@@ -67,7 +67,7 @@ public class CliRunner {
         int i = 0;
         try {
             i = Integer.parseInt(input);
-        } catch (NumberFormatException _) {
+        } catch (NumberFormatException e) {
             i = 20;
         }
         return i;
