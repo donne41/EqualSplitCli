@@ -47,18 +47,17 @@ public class CliRunner {
                         9) exit
                         """);
                 String input = sc.nextLine().trim();
-                int i = checkInput(input);
-                switch (i) {
-                    case 1 -> addPerson();
-                    case 2 -> editPerson();
-                    case 3 -> removePerson();
-                    case 4 -> viewList();
-                    case 5 -> calculate();
-                    default -> badInput = false;
+                MenuSelect select = MenuSelect.fromString(input);
+                switch (select) {
+                    case ADD -> addPerson();
+                    case EDIT -> editPerson();
+                    case REMOVE -> removePerson();
+                    case VIEW -> viewList();
+                    case CALC -> calculate();
+                    case EXIT -> badInput = false;
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
-                sc.nextLine();
                 run();
             }
 
@@ -66,15 +65,6 @@ public class CliRunner {
         } while (badInput);
     }
 
-    private int checkInput(String input) {
-        int i = 0;
-        try {
-            i = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            i = 20;
-        }
-        return i;
-    }
 
     private void viewList() {
         list.forEach(System.out::println);
@@ -82,20 +72,14 @@ public class CliRunner {
 
 
     void addPerson() {
-        String name;
-        double moneySpent = -1;
-        do {
-            System.out.println("Name: ");
-            name = sc.nextLine().trim();
-            if (name.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
-            System.out.println("Money spent: ");
-            if (sc.hasNextDouble()) {
-                moneySpent = sc.nextDouble();
-                sc.nextLine();
-            }
-            if (moneyValidation(moneySpent)) throw new IllegalArgumentException("Bad money input");
-            break;
-        } while (true);
+        System.out.println("Name: ");
+        String name = sc.nextLine().trim();
+        if (name.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
+
+        System.out.println("Money spent: ");
+        double moneySpent = getSafeDouble(sc.nextLine().trim());
+        if (moneyValidation(moneySpent)) throw new IllegalArgumentException("Bad money input");
+
         addPersonToList(name, moneySpent);
     }
 
@@ -108,27 +92,22 @@ public class CliRunner {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 
-    void editPerson() {
-        String personInput;
-        double newMoney = -1;
-        do {
-            System.out.println("Input name or index of person you want to edit");
-            personInput = sc.nextLine().trim();
-            if (personInput.isBlank()) throw new IllegalArgumentException("No name found or incorrect input");
-            System.out.println("Input a corrected amount of money spent");
-            if (sc.hasNextDouble()) {
-                newMoney = sc.nextDouble();
-                sc.nextLine();
-            }
-            if (moneyValidation(newMoney)) throw new IllegalArgumentException("Incorrect money input");
-            break;
-        } while (true);
+    void editPerson() throws IllegalArgumentException {
+        System.out.println("Input name or index of person you want to edit");
+        String personInput = sc.nextLine().trim();
+        if (personInput.isBlank()) throw new IllegalArgumentException("No name found or incorrect input");
+
+        System.out.println("Input a corrected amount of money spent");
+        double newMoney = getSafeDouble(sc.nextLine().trim());
+        if (moneyValidation(newMoney)) throw new IllegalArgumentException("Incorrect money input");
+
         editMoneySpent(personInput, newMoney);
 
     }
 
     void editMoneySpent(String name, double money) {
         var person = findPerson(getNormilizedName(name));
+        if (person.isEmpty()) throw new IllegalArgumentException("No person found!");
         System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
         person.get().setMoneySpent(money);
     }
@@ -149,14 +128,20 @@ public class CliRunner {
         return true;
     }
 
-    void removePerson() {
+    private double getSafeDouble(String money) {
+        String cleanInput = money.replace(',', '.');
+        try {
+            return Double.parseDouble(cleanInput);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    void removePerson() throws IllegalArgumentException {
         System.out.println("Enter name or index of person to be removed");
         String input = sc.nextLine().trim();
         var person = findPerson(input);
-        if (person.isEmpty()) {
-            System.out.println("Person not found");
-            return;
-        }
+        if (person.isEmpty()) throw new IllegalArgumentException("No person found!");
         System.out.println("Remove person: " + person.get().getName() + " " + person.get().getMoneySpent());
         System.out.println("1) yes \nany) Exit");
         if (sc.nextLine().matches("1")) {
@@ -179,7 +164,8 @@ public class CliRunner {
             System.out.printf("""
                     Sender: %-10s -> Reciver: %-10s Amount: %.2f\n""", t.getSenderName(), t.getReciverName(), t.getMoney());
         }
-        System.out.println("Total spent: " + result.sum + " Share amount: " + result.portion);
+        System.out.printf("""
+                Total spent: %.2f Share amount: %.2f\n""", result.sum, result.portion);
     }
 
 }

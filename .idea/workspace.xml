@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="unable to run package, test with downgrade to java 21">
+    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="update to java 25+">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/MenuSelect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" afterDir="false" />
     </list>
@@ -22,6 +23,7 @@
         <option value="GitHub Workflow" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -34,12 +36,12 @@
     &quot;assignee&quot;: &quot;donne41&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/donne41/EqualSplit.git&quot;,
-    &quot;accountId&quot;: &quot;f811828c-24e5-4603-ab5c-d2690f88a5ef&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/donne41/EqualSplit.git",
+    "accountId": "50e3b4ff-64fa-4cb2-9bca-2412c708135c"
   }
-}</component>
+}]]></component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
       <scroll-view-position x="0" y="0" />
@@ -243,6 +245,7 @@
       <workItem from="1771670065518" duration="1976000" />
       <workItem from="1771672298822" duration="1198000" />
       <workItem from="1771673535612" duration="4369000" />
+      <workItem from="1771681459685" duration="3689000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -391,7 +394,21 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1771675997576</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="Small changes to not crash the program with invalid input.">
+      <option name="closed" value="true" />
+      <created>1771679026239</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1771679026239</updated>
+    </task>
+    <task id="LOCAL−00023" summary="update to java 25">
+      <option name="closed" value="true" />
+      <created>1771679051598</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1771679051598</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +446,9 @@
     <MESSAGE value="implement more test and change to exception handling instead of systemPrint with validation." />
     <MESSAGE value="add&#10;Calculate test should get a history count." />
     <MESSAGE value="unable to run package, test with downgrade to java 21" />
-    <option name="LAST_COMMIT_MESSAGE" value="unable to run package, test with downgrade to java 21" />
+    <MESSAGE value="Small changes to not crash the program with invalid input." />
+    <MESSAGE value="update to java 25" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to java 25" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -458,12 +477,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/CliRunner.java</url>
-          <line>28</line>
-          <properties class="org.CliRunner" method="run">
+          <line>73</line>
+          <properties class="org.CliRunner" method="addPerson">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/CliRunner.java</url>
+          <line>130</line>
+          <properties class="org.CliRunner" method="getSafeDouble">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
