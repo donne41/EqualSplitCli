@@ -25,16 +25,16 @@ public class CliRunner {
         sc = new Scanner(System.in);
     }
 
-    protected void exitProgram() {
-        badInput = false;
-    }
 
     public void run() {
         badInput = true;
         System.out.printf("""
-                Welcome to EqualSplit, Here you can easily calculate a share everybody is support to share
-                and if someone has paid more than that they should receive money from people who has
-                paid less than the share!
+                Welcome to EqualSplit!
+                
+                I will help you calculate everyone's share of the costs.
+                If someone has paid more than their share,
+                I'll figure out exactly who owes whom—minimizing the number of transactions to make settling up as easy as possible.
+                
                 """);
         do {
             try {
@@ -58,7 +58,10 @@ public class CliRunner {
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
+                sc.nextLine();
+                run();
             }
+
 
         } while (badInput);
     }
@@ -169,6 +172,9 @@ public class CliRunner {
 
     private void resultPrinter() {
         var result = history.getLast();
+        if (result.transactions.size() == 0) {
+            System.out.println("No transactions needs to be made!");
+        }
         for (Transaction t : result.transactions) {
             System.out.printf("""
                     Sender: %-10s -> Reciver: %-10s Amount: %.2f\n""", t.getSenderName(), t.getReciverName(), t.getMoney());
