@@ -81,7 +81,7 @@ public class CliRunner {
 
     void addPerson() {
         String name;
-        double moneySpent = 0;
+        double moneySpent = -1;
         do {
             System.out.println("Name: ");
             name = sc.nextLine().trim();
@@ -103,13 +103,12 @@ public class CliRunner {
     }
 
     private static String getNormilizedName(String name) {
-        String normilizedName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        return normilizedName;
+        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 
     void editPerson() {
         String personInput;
-        double newMoney = 0;
+        double newMoney = -1;
         do {
             System.out.println("Input name or index of person you want to edit");
             personInput = sc.nextLine().trim();
@@ -142,7 +141,7 @@ public class CliRunner {
     }
 
     private boolean moneyValidation(double input) {
-        if (input > 0) {
+        if (input >= 0) {
             return false;
         }
         return true;

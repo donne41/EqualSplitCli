@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="fix &#10;when methods throw exception and handles double instead of string as money directly. &#10;Some changes to test to for simplicity and removed some Csv Soruce">
+    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="add&#10;Calculate test should get a history count.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +41,11 @@
     &quot;accountId&quot;: &quot;50e3b4ff-64fa-4cb2-9bca-2412c708135c&quot;
   }
 }</component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -79,7 +85,10 @@
     "JUnit.EqualSplitTest.getPersonOwned.executor": "Run",
     "JUnit.EqualSplitTest.getPortionSize.executor": "Run",
     "JUnit.EqualSplitTest.getSum.executor": "Run",
+    "Maven.EqualSplit [clean].executor": "Run",
+    "Maven.EqualSplit [deploy].executor": "Run",
     "Maven.EqualSplit [org.pitest:pitest-maven:1.22.0:mutationCoverage].executor": "Run",
+    "Maven.EqualSplit [package].executor": "Run",
     "Maven.EqualSplit [test].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -112,7 +121,7 @@
       <recent name="org" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize">
+  <component name="RunManager" selected="Application.CliRunner">
     <configuration name="CliRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.CliRunner" />
       <module name="EqualSplit" />
@@ -191,10 +200,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CliRunner" />
         <item itemvalue="JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize" />
         <item itemvalue="JUnit.CliRunnerTest" />
         <item itemvalue="JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize" />
-        <item itemvalue="Application.CliRunner" />
         <item itemvalue="JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne" />
       </list>
     </recent_temporary>
@@ -226,7 +235,10 @@
       <workItem from="1771515181691" duration="8331000" />
       <workItem from="1771577450724" duration="6795000" />
       <workItem from="1771604466399" duration="4179000" />
-      <workItem from="1771614203002" duration="315000" />
+      <workItem from="1771614203002" duration="376000" />
+      <workItem from="1771667761781" duration="1404000" />
+      <workItem from="1771669178404" duration="856000" />
+      <workItem from="1771670065518" duration="1976000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -361,7 +373,14 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1771591807977</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="add&#10;Calculate test should get a history count.">
+      <option name="closed" value="true" />
+      <created>1771614574377</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1771614574377</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +416,8 @@
     <MESSAGE value="normalizing name before list input." />
     <MESSAGE value="implented normalize name in find person method." />
     <MESSAGE value="implement more test and change to exception handling instead of systemPrint with validation." />
-    <option name="LAST_COMMIT_MESSAGE" value="implement more test and change to exception handling instead of systemPrint with validation." />
+    <MESSAGE value="add&#10;Calculate test should get a history count." />
+    <option name="LAST_COMMIT_MESSAGE" value="add&#10;Calculate test should get a history count." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -421,18 +441,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
           <line>34</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/CliRunner.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
