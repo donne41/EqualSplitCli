@@ -40,12 +40,12 @@ jobs:
       - name: Run jpackage
         shell: bash
         run: |
-          jpackage --input target/
-          --name EqualsplitApp
-          --app-version "${{ steps.get_version.outputs.VERSION }}"
-          --main-jar EqualSplit-"${{ steps.get_version.outputs.VERSION }}".jar
-          --main-class org.Main
-          --type app-image
+          jpackage --input target/ \
+          --name EqualsplitApp \
+          --app-version "${{ steps.get_version.outputs.VERSION }}" \
+          --main-jar EqualSplit-"${{ steps.get_version.outputs.VERSION }}".jar \  
+          --main-class org.Main \
+          --type app-image \
           $( [ "${{matrix.os }}" == "windows-latest" ] && echo "--win-console" )
 
       - name: Archive Linux build
