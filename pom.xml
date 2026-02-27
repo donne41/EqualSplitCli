@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.github.donne41</groupId>
             <artifactId>equalsplit</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.8</version>
         </dependency>
     </dependencies>
     <distributionManagement>
@@ -67,11 +67,9 @@
                 <configuration>
                     <targetClasses>
                         <param>org.CliRunner</param>
-                        <param>org.EqualSplit</param>
                     </targetClasses>
                     <targetTests>
                         <param>org.CliRunnerTest</param>
-                        <param>org.EqualSplitTest</param>
                     </targetTests>
                 </configuration>
                 <dependencies>
