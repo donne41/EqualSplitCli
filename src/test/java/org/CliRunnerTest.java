@@ -24,7 +24,7 @@ class CliRunnerTest {
         cRunner = new CliRunner(fakeScanner);
 
         cRunner.run();
-        var result = cRunner.list.size();
+        var result = cRunner.service.getGroup().size();
 
         assertThat(result).isEqualTo(1);
     }
@@ -37,7 +37,7 @@ class CliRunnerTest {
         cRunner = new CliRunner(fakeScanner);
 
         cRunner.run();
-        var result = cRunner.list.size();
+        var result = cRunner.service.getGroup().size();
 
         assertThat(result).isEqualTo(3);
     }
@@ -52,12 +52,12 @@ class CliRunnerTest {
         String simInput = String.format("%d\n%s\n%d\n%d\n%s\n%s\n%s", menuSelect, name, confirm, menuSelect2, name2, anyKey, exit);
         Scanner fakeScanner = new Scanner(simInput);
         cRunner = new CliRunner(fakeScanner);
-        cRunner.addPersonToList("bob", 200);
-        cRunner.addPersonToList("tim", 300);
+        cRunner.service.addPerson("bob", 200);
+        cRunner.service.addPerson("tim", 300);
 
         cRunner.run();
 
-        var result = cRunner.list.size();
+        var result = cRunner.service.getGroup().size();
 
         assertThat(result).isEqualTo(1);
     }
@@ -65,10 +65,10 @@ class CliRunnerTest {
     @Test
     void editedPersonShouldSaveNewSpentMoney() {
         cRunner = new CliRunner();
-        cRunner.addPersonToList("bob", 100);
-        cRunner.editMoneySpent("bob", 300);
+        cRunner.service.addPerson("bob", 100);
+        cRunner.service.editPerson("bob", 300);
 
-        var result = cRunner.list.getLast().getMoneySpent();
+        var result = cRunner.service.getGroup().getLast().getMoneySpent();
         assertThat(result).isEqualTo(300);
 
     }
@@ -94,7 +94,7 @@ class CliRunnerTest {
     @Test
     void findPersonShouldReturnPersonWithDifferentMethods() {
         cRunner = new CliRunner();
-        cRunner.addPersonToList("bob", 200);
+        cRunner.service.addPerson("bob", 200);
 
         var stringResult = cRunner.findPerson("bob");
         var indexResult = cRunner.findPerson("0");
@@ -109,10 +109,10 @@ class CliRunnerTest {
         String simInput = "bob\n1";
         Scanner fakeScanner = new Scanner(simInput);
         cRunner = new CliRunner(fakeScanner);
-        cRunner.addPersonToList("bob", 100);
-        cRunner.addPersonToList("tim", 200);
+        cRunner.service.addPerson("bob", 100);
+        cRunner.service.addPerson("tim", 200);
         cRunner.removePerson();
-        var result = cRunner.list.size();
+        var result = cRunner.service.getGroup().size();
 
         assertThat(result).isOne();
     }
@@ -120,12 +120,12 @@ class CliRunnerTest {
     @Test
     void calculateWithValidGroupShouldReturnHistorySize() {
         cRunner = new CliRunner();
-        cRunner.addPersonToList("bob", 200);
-        cRunner.addPersonToList("tim", 400);
+        cRunner.service.addPerson("bob", 200);
+        cRunner.service.addPerson("tim", 400);
 
         cRunner.calculate();
 
-        var result = cRunner.history.size();
+        var result = cRunner.service.getResultList().size();
 
         assertThat(result).isOne();
     }

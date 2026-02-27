@@ -1,16 +1,12 @@
 package org;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
 public class CliRunner {
     private Scanner sc;
-    List<Person> list = new ArrayList<>();
-    EqualSplit equalSplit = new EqualSplit();
-    List<SplitResult> history = new ArrayList<>();
     boolean badInput;
+    EqualSplitService service = new EqualSplitService();
 
     public CliRunner(Scanner scanner) {
         sc = scanner;
@@ -71,26 +67,23 @@ public class CliRunner {
 
 
     private void viewList() {
-        list.forEach(System.out::println);
+        var group = service.getGroup();
+        group.forEach(p -> System.out.println(p));
     }
 
 
     void addPerson() {
         System.out.println("Name: ");
-        String name = sc.nextLine().trim();
-        if (name.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
-
+        String inputName = sc.nextLine().trim();
+        if (inputName.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
+        String name = getNormilizedName(inputName);
         System.out.println("Money spent: ");
         double moneySpent = getSafeDouble(sc.nextLine().trim());
         if (moneyValidation(moneySpent)) throw new IllegalArgumentException("Bad money input");
 
-        addPersonToList(name, moneySpent);
+        service.addPerson(name, moneySpent);
     }
 
-    void addPersonToList(String name, double money) {
-        String normilizedName = getNormilizedName(name);
-        list.add(new Person(normilizedName, money));
-    }
 
     private static String getNormilizedName(String name) {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
@@ -100,29 +93,28 @@ public class CliRunner {
         System.out.println("Input name or index of person you want to edit");
         String personInput = sc.nextLine().trim();
         if (personInput.isBlank()) throw new IllegalArgumentException("No name found or incorrect input");
+        String name = getNormilizedName(personInput);
 
         System.out.println("Input a corrected amount of money spent");
         double newMoney = getSafeDouble(sc.nextLine().trim());
         if (moneyValidation(newMoney)) throw new IllegalArgumentException("Incorrect money input");
 
-        editMoneySpent(personInput, newMoney);
+        double oldSpent = service.getPersonSpent(name);
 
-    }
+        if (service.editPerson(name, newMoney)) {
+            System.out.println("name " + oldSpent + " -> " + newMoney);
+        } else {
+            System.out.println(name + " not found!");
+        }
 
-    void editMoneySpent(String name, double money) {
-        var person = findPerson(getNormilizedName(name));
-        if (person.isEmpty()) throw new IllegalArgumentException("No person found!");
-        System.out.println(person.get().getName() + " " + person.get().getMoneySpent() + " -> " + money);
-        person.get().setMoneySpent(money);
     }
 
     Optional<Person> findPerson(String name) {
         if (name.matches("\\d+")) {
-            if (list.size() <= Integer.parseInt(name)) return Optional.empty();
-            return Optional.of(list.get(Integer.parseInt(name)));
+            if (service.getGroup().size() <= Integer.parseInt(name)) return Optional.empty();
+            return Optional.of(service.findPerson(Integer.parseInt(name)));
         }
-        return list.stream().filter(p ->
-                p.getName().matches(getNormilizedName(name))).findFirst();
+        return service.findPerson(getNormilizedName(name));
     }
 
     private boolean moneyValidation(double input) {
@@ -144,24 +136,25 @@ public class CliRunner {
     void removePerson() throws IllegalArgumentException {
         System.out.println("Enter name or index of person to be removed");
         String input = sc.nextLine().trim();
-        var person = findPerson(input);
+        String name = getNormilizedName(input);
+        var person = service.findPerson(name);
         if (person.isEmpty()) throw new IllegalArgumentException("No person found!");
         System.out.println("Remove person: " + person.get().getName() + " " + person.get().getMoneySpent());
         System.out.println("1) yes \nany) Exit");
         if (sc.nextLine().matches("1")) {
-            list.remove(person.get());
-            System.out.println("Person removed!");
+            if (service.removePerson(name))
+                System.out.println("Person removed!");
         }
     }
 
     void calculate() {
-        history.add(equalSplit.getResult(list));
+        service.calculate();
         resultPrinter();
     }
 
     private void resultPrinter() {
-        var result = history.getLast();
-        if (result.transactions.size() == 0) {
+        var result = service.getResultList().getLast();
+        if (result.transactions.isEmpty()) {
             System.out.println("No transactions needs to be made!");
         }
         for (Transaction t : result.transactions) {

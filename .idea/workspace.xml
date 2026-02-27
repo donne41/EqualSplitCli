@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="fix workflow permissions">
+    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="fix dependency with custom package.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EqualSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EqualSplit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/SplitResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/SplitResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +104,10 @@
     "Maven.EqualSplit [package].executor": "Run",
     "Maven.EqualSplit [test].executor": "Run",
     "Maven.EqualSplit [validate].executor": "Run",
+    "Maven.equalsplitcli [clean].executor": "Run",
+    "Maven.equalsplitcli [compile].executor": "Run",
     "Maven.equalsplitcli [install].executor": "Run",
+    "Maven.equalsplitcli [package].executor": "Run",
     "Maven.equalsplitcli [validate].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -136,19 +145,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="CliRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.CliRunner" />
-      <module name="EqualSplit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.Main" />
       <module name="EqualSplit" />
@@ -177,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EqualSplit" />
       <extension name="coverage">
         <pattern>
@@ -187,7 +183,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="org" />
       <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
-      <option name="METHOD_NAME" value="calculateWithValidGroupShouldReturnHistorySize" />
+      <option name="METHOD_NAME" value="findPersonShouldReturnPersonWithDifferentMethods" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CliRunnerTest.removePersonShouldReduceListCountByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EqualSplit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org" />
+      <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
+      <option name="METHOD_NAME" value="removePersonShouldReduceListCountByOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -211,10 +223,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EqualSplitTest" />
         <item itemvalue="JUnit.CliRunnerTest" />
-        <item itemvalue="Application.CliRunner" />
-        <item itemvalue="JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize" />
+        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne" />
+        <item itemvalue="JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" />
+        <item itemvalue="JUnit.EqualSplitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +267,8 @@
       <workItem from="1771829857987" duration="9216000" />
       <workItem from="1772180693437" duration="9000" />
       <workItem from="1772180831192" duration="1843000" />
-      <workItem from="1772182679588" duration="1415000" />
+      <workItem from="1772182679588" duration="1888000" />
+      <workItem from="1772184573284" duration="12842000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -474,7 +487,14 @@
       <option name="presentableId" value="LOCAL−00031" />
       <updated>1771835072813</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL−00032" summary="fix dependency with custom package.">
+      <option name="closed" value="true" />
+      <created>1772184122701</created>
+      <option name="number" value="LOCAL−00032" />
+      <option name="presentableId" value="LOCAL−00032" />
+      <updated>1772184122701</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="get transaction list for money sent, and using resultSplit to present result nicely soon" />
     <MESSAGE value="result printer" />
     <MESSAGE value="add person test" />
     <MESSAGE value="multiple person test with method source." />
@@ -517,7 +536,8 @@
     <MESSAGE value="fix&#10;backslashes to make the bash command act as one command." />
     <MESSAGE value="fix workflow" />
     <MESSAGE value="fix workflow permissions" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix workflow permissions" />
+    <MESSAGE value="fix dependency with custom package." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix dependency with custom package." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -543,6 +563,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
           <line>34</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
