@@ -46,7 +46,7 @@ jobs:
           jpackage --input target/ \
           --name EqualsplitApp \
           --app-version ${{ steps.get_version.outputs.VERSION }} \
-          --main-jar EqualSplit-${{ steps.get_version.outputs.VERSION }}.jar \
+          --main-jar equalsplitcli-${{ steps.get_version.outputs.VERSION }}.jar \
           --main-class org.Main \
           $( [ "${{matrix.os }}" == "windows-latest" ] && echo "--win-console" ) \
           --type app-image
