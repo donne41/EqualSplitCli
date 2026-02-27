@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="fix workflow permissions">
+    <list default="true" id="f93d429e-7056-40a0-bced-7948c3772247" name="Changes" comment="fix dependency with custom package.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CliRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EqualSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EqualSplit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/SplitResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/SplitResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -38,7 +48,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/donne41/EqualSplit.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/donne41/EqualSplitCli.git&quot;,
     &quot;accountId&quot;: &quot;50e3b4ff-64fa-4cb2-9bca-2412c708135c&quot;
   }
 }</component>
@@ -59,68 +69,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CliRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.addPersonShouldIncreaseGroupSize (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.addPersonShouldIncreaseGroupSize.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CliRunnerTest.addThreePersonShoulRetunCorrectSize (1).executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CliRunnerTest.addThreePersonShoulRetunCorrectSize.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.addThreePersonShouldRetunCorrectSize.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.editPersonWrongInputValidation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.editedPersonShouldSaveNewSpentMoney.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreaseSizeButNotAnyKey.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EqualSplitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EqualSplitTest.getAmountOfsentMoney.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EqualSplitTest.getPersonOwned.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EqualSplitTest.getPortionSize.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EqualSplitTest.getSum.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [deploy].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [org.pitest:pitest-maven:1.22.0:mutationCoverage].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EqualSplit [validate].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CliRunner.executor": "Run",
+    "Application.Main.executor": "Run",
+    "JUnit.CliRunnerTest.addPersonShouldIncreaseGroupSize (1).executor": "Run",
+    "JUnit.CliRunnerTest.addPersonShouldIncreaseGroupSize.executor": "Debug",
+    "JUnit.CliRunnerTest.addThreePersonShoulRetunCorrectSize (1).executor": "Debug",
+    "JUnit.CliRunnerTest.addThreePersonShoulRetunCorrectSize.executor": "Run",
+    "JUnit.CliRunnerTest.addThreePersonShouldRetunCorrectSize.executor": "Debug",
+    "JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize (1).executor": "Run",
+    "JUnit.CliRunnerTest.addThreePersonShouldReturnCorrectSize.executor": "Debug",
+    "JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize.executor": "Run",
+    "JUnit.CliRunnerTest.editPersonWrongInputValidation.executor": "Run",
+    "JUnit.CliRunnerTest.editedPersonShouldSaveNewSpentMoney.executor": "Run",
+    "JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney (1).executor": "Run",
+    "JUnit.CliRunnerTest.editedPersonShouldSaveNewspentMoney.executor": "Run",
+    "JUnit.CliRunnerTest.executor": "Run",
+    "JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods.executor": "Run",
+    "JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne (1).executor": "Run",
+    "JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne.executor": "Run",
+    "JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreaseSizeButNotAnyKey.executor": "Run",
+    "JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey (1).executor": "Run",
+    "JUnit.CliRunnerTest.removePersonShouldWithConfirmationShouldDecreseSizeButNotAnyKey.executor": "Run",
+    "JUnit.EqualSplitTest.executor": "Run",
+    "JUnit.EqualSplitTest.getAmountOfsentMoney.executor": "Run",
+    "JUnit.EqualSplitTest.getPersonOwned.executor": "Run",
+    "JUnit.EqualSplitTest.getPortionSize.executor": "Run",
+    "JUnit.EqualSplitTest.getSum.executor": "Run",
+    "Maven.EqualSplit [clean].executor": "Run",
+    "Maven.EqualSplit [deploy].executor": "Run",
+    "Maven.EqualSplit [install].executor": "Run",
+    "Maven.EqualSplit [org.pitest:pitest-maven:1.22.0:mutationCoverage].executor": "Run",
+    "Maven.EqualSplit [package].executor": "Run",
+    "Maven.EqualSplit [test].executor": "Run",
+    "Maven.EqualSplit [validate].executor": "Run",
+    "Maven.equalsplitcli [clean].executor": "Run",
+    "Maven.equalsplitcli [compile].executor": "Run",
+    "Maven.equalsplitcli [install].executor": "Run",
+    "Maven.equalsplitcli [package].executor": "Run",
+    "Maven.equalsplitcli [validate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "refactoring/cli",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "profiler.jvm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -130,19 +145,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="CliRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.CliRunner" />
-      <module name="EqualSplit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.Main" />
       <module name="EqualSplit" />
@@ -171,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EqualSplit" />
       <extension name="coverage">
         <pattern>
@@ -181,7 +183,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="org" />
       <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
-      <option name="METHOD_NAME" value="calculateWithValidGroupShouldReturnHistorySize" />
+      <option name="METHOD_NAME" value="findPersonShouldReturnPersonWithDifferentMethods" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CliRunnerTest.removePersonShouldReduceListCountByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EqualSplit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org" />
+      <option name="MAIN_CLASS_NAME" value="org.CliRunnerTest" />
+      <option name="METHOD_NAME" value="removePersonShouldReduceListCountByOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -205,10 +223,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EqualSplitTest" />
         <item itemvalue="JUnit.CliRunnerTest" />
-        <item itemvalue="Application.CliRunner" />
-        <item itemvalue="JUnit.CliRunnerTest.calculateWithValidGroupShouldReturnHistorySize" />
+        <item itemvalue="JUnit.CliRunnerTest.removePersonShouldReduceListCountByOne" />
+        <item itemvalue="JUnit.CliRunnerTest.findPersonShouldReturnPersonWithDifferentMethods" />
+        <item itemvalue="JUnit.EqualSplitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -247,6 +265,10 @@
       <workItem from="1771673535612" duration="4369000" />
       <workItem from="1771681459685" duration="6099000" />
       <workItem from="1771829857987" duration="9216000" />
+      <workItem from="1772180693437" duration="9000" />
+      <workItem from="1772180831192" duration="1843000" />
+      <workItem from="1772182679588" duration="1888000" />
+      <workItem from="1772184573284" duration="12842000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -465,7 +487,14 @@
       <option name="presentableId" value="LOCAL−00031" />
       <updated>1771835072813</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL−00032" summary="fix dependency with custom package.">
+      <option name="closed" value="true" />
+      <created>1772184122701</created>
+      <option name="number" value="LOCAL−00032" />
+      <option name="presentableId" value="LOCAL−00032" />
+      <updated>1772184122701</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="get transaction list for money sent, and using resultSplit to present result nicely soon" />
     <MESSAGE value="result printer" />
     <MESSAGE value="add person test" />
     <MESSAGE value="multiple person test with method source." />
@@ -508,7 +536,8 @@
     <MESSAGE value="fix&#10;backslashes to make the bash command act as one command." />
     <MESSAGE value="fix workflow" />
     <MESSAGE value="fix workflow permissions" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix workflow permissions" />
+    <MESSAGE value="fix dependency with custom package." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix dependency with custom package." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -534,6 +563,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
           <line>34</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/CliRunnerTest.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
