@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>EqualSplit</artifactId>
+
+    <groupId>com.github.donne41</groupId>
+    <artifactId>equalsplitcli</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,6 +14,7 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -36,14 +38,25 @@
             <version>3.5.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.donne41</groupId>
+            <artifactId>equalsplit</artifactId>
+            <version>0.8</version>
+        </dependency>
     </dependencies>
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/donne41/equalSplit</url>
+            <url>https://maven.pkg.github.com/donne41/equalsplitcli</url>
         </repository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://www.jitpack.io</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
@@ -53,11 +66,9 @@
                 <configuration>
                     <targetClasses>
                         <param>org.CliRunner</param>
-                        <param>org.EqualSplit</param>
                     </targetClasses>
                     <targetTests>
                         <param>org.CliRunnerTest</param>
-                        <param>org.EqualSplitTest</param>
                     </targetTests>
                 </configuration>
                 <dependencies>
